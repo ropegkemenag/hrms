@@ -1,0 +1,138 @@
+<?= $this->extend('template') ?>
+
+<?= $this->section('content') ?>
+<div class="page-content">
+  <div class="container-fluid">
+    <div class="row ">
+      <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+          <h4 class="mb-sm-0">Akses Pengguna</h4>
+
+          <div class="page-title-right">
+            <ol class="breadcrumb m-0">
+              <li class="breadcrumb-item">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAccess">
+                  Tambah Akses
+              </button>
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-12 align-self-center">
+        <div class="card">
+          <div class="card-body">
+            <table class="table table-bordered table-striped" id="accesstable">
+              <thead>
+                <tr>
+                  <th>NIP</th>
+                  <th>NAMA</th>
+                  <th>APP</th>
+                  <th>ROLE</th>
+                  <th>OPSI</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="addAccess" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" data-bs-backdrop="static" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header p-3 bg-soft-info">
+        <h5 class="modal-title" id="myModalLabel">Tambah Akses Aplikasi</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="" action="" id="addadmin" method="post">
+          <div class="mb-3">
+            <label for="jumlah" class="form-label">NIP</label>
+            <div class="input-group">
+                <input type="text" class="form-control" name="nip" id="nip">
+                <button class="btn btn-outline-success" type="button" id="button-addon2" onclick="checknip()">Cek</button>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="jumlah" class="form-label">NAMA</label>
+            <input type="text" class="form-control" name="nama" id="nama" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="jumlah" class="form-label">JABATAN</label>
+            <input type="text" class="form-control" name="jabatan" id="jabatan" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="jumlah" class="form-label">NO HP</label>
+            <input type="text" class="form-control" name="phone" id="phone" readonly>
+            <input type="hidden" name="satker" id="satker" value="">
+          </div>
+          <div class="mb-3">
+            <label for="unorid" class="form-label">SATKER KELOLA</label>
+            <select class="form-select" id="satker" name="satker">
+              <option value="">--Pilih Satuan Kerja--</option>
+              <?php foreach ($satker as $row) {
+                echo '<option value="'.encrypt($row->KODE_SATUAN_KERJA).'">'.$row->SATUAN_KERJA.'</option>';
+              } ?>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="unorid" class="form-label">APLIKASI</label>
+            <select class="form-select" id="app" name="app">
+              <option value="">--Pilih Apps--</option>
+              <?php foreach ($apps as $row) {
+                echo '<option value="'.$row->ID.'">'.$row->APP_NAME.'</option>';
+              } ?>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Tutup</button>
+        <button type="button" class="btn btn-primary" onclick="$('#addadmin').submit()">Simpan</button>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+<?= $this->endSection() ?>
+
+<?= $this->section('script') ?>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#accesstable').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: '<?= site_url('ajax/getaccess')?>',
+            method: 'POST'
+        },
+        columns: [
+              {data: 'NIP', name: 'UM_USER.NIP'},
+              {data: 'NAMA_LENGKAP', name: 'TEMP_PEGAWAI.NAMA_LENGKAP'},
+              {data: 'APP_NAME', name: 'UM_APP.APP_NAME'},
+              {data: 'ROLE', name: 'UM_USER.ROLE'},
+              {data: 'action', orderable: false},
+          ]
+    });
+});
+
+  function checknip(){
+    axios.get('<?= site_url('ajax/pegawai')?>/'+$('#nip').val())
+    .then(function (response) {
+      var data = response.data[0];
+
+      $('#nama').val(data.NAMA_LENGKAP);
+      $('#jabatan').val(data.TAMPIL_JABATAN);
+      $('#phone').val(data.NO_HP);
+    });
+  }
+</script>
+<?= $this->endSection() ?>
