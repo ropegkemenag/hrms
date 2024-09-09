@@ -123,13 +123,13 @@ class Cache extends BaseConfig
      *
      * @var array<string, int|string|null>
      */
-    public array $redis = [
-        'host'     => '127.0.0.1',
-        'password' => null,
-        'port'     => 6379,
-        'timeout'  => 0,
-        'database' => 0,
-    ];
+     public $redis = [
+         'host'     => '192.168.10.100',
+         'password' => 'abs3n',
+         'port'     => 6379,
+         'timeout'  => 0,
+         'database' => 0,
+     ];
 
     /**
      * --------------------------------------------------------------------------
