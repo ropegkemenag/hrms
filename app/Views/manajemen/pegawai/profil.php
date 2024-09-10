@@ -10,10 +10,9 @@
 
           <div class="page-title-right">
             <ol class="breadcrumb m-0">
-              <li class="breadcrumb-item"><a href="javascript: void(0);">Cetak DRH</a></li>
+              <li class="breadcrumb-item"><a href="javascript: void(0);" class="btn btn-primary">Cetak DRH</a></li>
             </ol>
           </div>
-
         </div>
       </div>
     </div>
@@ -26,14 +25,14 @@
               <div class="text-center">
                 <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
                   <img src="<?= base_url()?>assets/images/users/avatar-1.jpg" class="rounded-circle avatar-xl img-thumbnail user-profile-image" id="pegawai-avatar" alt="user-profile-image">
-                  <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
+                  <!-- <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
                     <input id="profile-img-file-input" type="file" class="profile-img-file-input">
                     <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
                       <span class="avatar-title rounded-circle bg-light text-body">
                         <i class="ri-camera-fill"></i>
                       </span>
                     </label>
-                  </div>
+                  </div> -->
                 </div>
                 <h5 class="fs-16 mb-1"><?= $pegawai->NAMA_LENGKAP?></h5>
                 <p class="text-muted mb-0"><?= $pegawai->TAMPIL_JABATAN?></p>
@@ -41,7 +40,7 @@
             </div>
           </div>
           <!--end card-->
-          <div class="card">
+          <!-- <div class="card">
             <div class="card-body">
               <div class="d-flex align-items-center mb-4">
                 <div class="flex-grow-1">
@@ -57,7 +56,7 @@
                     <i class="ri-github-fill"></i>
                   </span>
                 </div>
-                <input type="email" class="form-control" id="gitUsername" placeholder="Username" value="@daveadame">
+                <input type="email" class="form-control" id="gitUsername" placeholder="Username" value="@daveadame" disabled>
               </div>
               <div class="mb-3 d-flex">
                 <div class="avatar-xs d-block flex-shrink-0 me-3">
@@ -84,10 +83,9 @@
                 <input type="text" class="form-control" id="pinterestName" placeholder="Username" value="Advance Dave">
               </div>
             </div>
-          </div>
-          <!--end card-->
+          </div> -->
         </div>
-        <!--end col-->
+
         <div class="col-xxl-9">
           <div class="card">
             <div class="card-header">
@@ -121,8 +119,8 @@
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="mb-3">
-                          <label for="firstnameInput" class="form-label">First Name</label>
-                          <input type="text" class="form-control" id="firstnameInput" placeholder="Enter your firstname" value="Dave">
+                          <label for="firstnameInput" class="form-label">Nama</label>
+                          <input type="text" class="form-control" id="firstnameInput" value="<?= $pegawai->NAMA_LENGKAP?>" disabled>
                         </div>
                       </div>
                       <!--end col-->
