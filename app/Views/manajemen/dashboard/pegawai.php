@@ -2,165 +2,164 @@
 
 <?= $this->section('content') ?>
 <div class="page-content">
-  <div class="container-fluid">
 
-
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="text-center mb-5">
-          <h3 class="mb-3 fw-semibold">Dashboard <span class="text-danger">Kepegawaian</span></h3>
-          <p class="text-muted mb-4 ff-secondary">Sistem Informasi Kepegawaian</p>
+  <div class="row g-6">
+<!-- Card Border Shadow -->
+<div class="col-lg-3 col-sm-6">
+  <div class="card card-border-shadow-primary h-100">
+    <div class="card-body">
+      <div class="d-flex align-items-center mb-2">
+        <div class="avatar me-4">
+          <span class="avatar-initial rounded bg-label-primary"><i class='ti ti-truck ti-28px'></i></span>
         </div>
+        <h4 class="mb-0">42</h4>
       </div>
+      <p class="mb-1">On route vehicles</p>
+      <p class="mb-0">
+        <span class="text-heading fw-medium me-2">+18.2%</span>
+        <small class="text-muted">than last week</small>
+      </p>
     </div>
-    <div class="row">
-      <div class="col-lg-3">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex align-items-center">
-              <div class="avatar-sm flex-shrink-0">
-                <span class="avatar-title bg-light text-primary rounded-circle fs-3">
-                  <i class="ri-shield-user-line align-middle"></i>
-                </span>
-              </div>
-              <div class="flex-grow-1 ms-3">
-                <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Jumlah Pegawai</p>
-                <h4 class=" mb-0"><span class="counter-value" data-target="<?= rupiah($djk[0]->JUMLAH + $djk[1]->JUMLAH) ?>">0</span></h4>
-              </div>
-            </div>
-          </div><!-- end card body -->
-        </div>
-
-        <div class="card">
-          <div class="card-header border-0 align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Berdasarkan Jenis Kelamin</h4>
-          </div>
-          <div class="card-body">
-            <div id="gender" data-colors='["--vz-primary", "--vz-warning"]' class="apex-charts" dir="ltr"></div>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="card card-height-100">
-          <div class="card-header border-0 align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Berdasarkan Agama</h4>
-          </div><!-- end cardheader -->
-          <div class="card-body">
-            <div id="agama" data-colors='["--vz-primary", "--vz-warning"]' class="apex-charts" dir="ltr"></div>
-
-          </div><!-- end card body -->
-        </div><!-- end card -->
-      </div>
-      <div class="col-lg-3">
-
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xxl-12 order-xxl-0 order-first">
-        <div class="d-flex flex-column h-100">
-          <div class="row">
-            <div class="col-xl-12">
-              <div class="card">
-                <div class="card-header border-0 align-items-center d-flex">
-                  <h4 class="card-title mb-0 flex-grow-1">Berdasarkan Jabatan</h4>
-                </div>
-                <div class="card-body p-0 pb-3">
-                  <div id="chartjab" data-colors='["--vz-success"]' class="apex-charts" dir="ltr"></div>
-                </div><!-- end cardbody -->
-              </div><!-- end card -->
-            </div><!-- end col -->
-          </div><!-- end row -->
-        </div>
-      </div><!-- end col -->
-    </div><!-- end row -->
-
   </div>
-  <!-- container-fluid -->
+</div>
+<div class="col-lg-3 col-sm-6">
+  <div class="card card-border-shadow-warning h-100">
+    <div class="card-body">
+      <div class="d-flex align-items-center mb-2">
+        <div class="avatar me-4">
+          <span class="avatar-initial rounded bg-label-warning"><i class='ti ti-alert-triangle ti-28px'></i></span>
+        </div>
+        <h4 class="mb-0">8</h4>
+      </div>
+      <p class="mb-1">Vehicles with errors</p>
+      <p class="mb-0">
+        <span class="text-heading fw-medium me-2">-8.7%</span>
+        <small class="text-muted">than last week</small>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-3 col-sm-6">
+  <div class="card card-border-shadow-danger h-100">
+    <div class="card-body">
+      <div class="d-flex align-items-center mb-2">
+        <div class="avatar me-4">
+          <span class="avatar-initial rounded bg-label-danger"><i class='ti ti-git-fork ti-28px'></i></span>
+        </div>
+        <h4 class="mb-0">27</h4>
+      </div>
+      <p class="mb-1">Deviated from route</p>
+      <p class="mb-0">
+        <span class="text-heading fw-medium me-2">+4.3%</span>
+        <small class="text-muted">than last week</small>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-3 col-sm-6">
+  <div class="card card-border-shadow-info h-100">
+    <div class="card-body">
+      <div class="d-flex align-items-center mb-2">
+        <div class="avatar me-4">
+          <span class="avatar-initial rounded bg-label-info"><i class='ti ti-clock ti-28px'></i></span>
+        </div>
+        <h4 class="mb-0">13</h4>
+      </div>
+      <p class="mb-1">Late vehicles</p>
+      <p class="mb-0">
+        <span class="text-heading fw-medium me-2">-2.5%</span>
+        <small class="text-muted">than last week</small>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="col-xxl-4 col-lg-6">
+  <div class="card h-100">
+    <div class="card-header d-flex align-items-center justify-content-between">
+      <div class="card-title mb-0">
+        <h5 class="m-0 me-2">Reasons for delivery exceptions</h5>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-text-secondary rounded-pill text-muted border-0 p-2 me-n1" type="button" id="gender" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="ti ti-dots-vertical ti-md text-muted"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="deliveryExceptions">
+          <a class="dropdown-item" href="javascript:void(0);">Select All</a>
+          <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+          <a class="dropdown-item" href="javascript:void(0);">Share</a>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div id="deliveryExceptionsChart"></div>
+    </div>
+  </div>
+</div>
+</div>
 </div>
 <?= $this->endSection() ?>
 
 <?= $this->section('script') ?>
 <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/libs/apexcharts/apexcharts.min.js"></script>
-<script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/js/pages/dashboard-crypto.init.js"></script>
 <script>
 $(document).ready(function() {
+  var i={donut:{series1:config.colors.success,series2:"#53D28C",series3:"#7EDDA9",series4:"#A9E9C5"}};
   var options = {
-    series: [<?= rupiah($djk[0]->JUMLAH) ?>, <?= rupiah($djk[1]->JUMLAH) ?>],
-    labels: ["Perempuan", "Laki-Laki"],
-    chart: {
-      type: "donut",
-      height: 224
+    chart:{
+      height:420,
+      parentHeightOffset:0,
+      type:"donut"
     },
-    plotOptions: {
-      pie: {
-        size: 100,
-        offsetX: 0,
-        offsetY: 0,
-        donut: {
-          size: "70%",
-          labels: {
-            show: !0,
-            name: {
-              show: !0,
-              fontSize: "18px",
-              offsetY: -5
-            },
-            value: {
-              show: !0,
-              fontSize: "20px",
-              color: "#343a40",
-              fontWeight: 500,
-              offsetY: 5,
-              formatter: function(e) {
-                return e
+    labels:["Incorrect address","Weather conditions","Federal Holidays","Damage during transit"],
+    series:[13,25,22,40],
+    colors:[i.donut.series1,i.donut.series2,i.donut.series3,i.donut.series4],
+    stroke:{width:0},
+    dataLabels:{
+      enabled:!1,
+      formatter:function(e,t){
+        return parseInt(e)+"%"
+      }
+    },
+    legend:{
+      show:!0,
+      position:"bottom",
+      offsetY:10,
+      markers:{
+        width:8,height:8,offsetX:-3
+      },
+      itemMargin:{
+        horizontal:15,
+        vertical:5
+      },
+      fontSize:"13px",
+      fontFamily:"Public Sans",
+      fontWeight:400,
+      labels:{colors:o,useSeriesColors:!1}
+    },
+    tooltip:{theme:!1},
+    grid:{
+      padding:{top:15}
+    },
+    plotOptions:{
+      pie:{
+        donut:{
+          size:"77%",labels:{
+            show:!0,value:{
+              fontSize:"24px",fontFamily:"Public Sans",color:o,fontWeight:500,offsetY:-20,formatter:function(e){
+                return parseInt(e)+"%"
               }
             },
-            total: {
-              show: !0,
-              fontSize: "13px",
-              label: "Total Pegawai",
-              color: "#9599ad",
-              fontWeight: 500,
-              formatter: function(e) {
-                return e.globals.seriesTotals.reduce(function(e, t) {
-                  return e + t
-                }, 0)
-              }
+            name:{
+              offsetY:30,fontFamily:"Public Sans"
+            },
+            total:{
+              show:!0,fontSize:"15px",fontFamily:"Public Sans",color:s,label:"AVG. Exceptions",formatter:function(e){return"30%"}
             }
           }
         }
       }
-    },
-    dataLabels: {
-      enabled: !1
-    },
-    legend: {
-      show: !1
-    },
-    yaxis: {
-      labels: {
-        formatter: function(e) {
-          return e
-        }
-      }
-    },
-    stroke: {
-      lineCap: "round",
-      width: 2
-    },
-    responsive: [{
-      breakpoint: 480,
-      options: {
-        chart: {
-          width: 200
-        },
-        legend: {
-          position: 'bottom'
-        }
-      }
-    }]
+    }
   };
 
   var chart = new ApexCharts(document.querySelector("#gender"), options);

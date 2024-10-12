@@ -1,151 +1,77 @@
 <?= $this->extend('template') ?>
 
 <?= $this->section('content') ?>
-
-    <div class="row justify-content-center">
-        <div class="col-lg-7">
-            <div class="text-center mb-5">
-                <h1 class="mb-3 ff-secondary fw-semibold text-capitalize lh-base">Human Resource <span class="text-danger">Management System</span></h1>
-                <p class="text-muted">Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
+<section id="landingFeatures" class="section-py landing-features">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-lg-8">
+        <h4 class="text-center mb-1">
+          <span class="position-relative fw-extrabold z-1">Pengelolaan Kepegawaian
+            <img
+            src="../../assets/img/front-pages/icons/section-title-icon.png"
+            alt="laptop charging"
+            class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" />
+          </span>
+          Kementerian Agama
+        </h4>
+        <p class="text-center mb-12">
+          Not just a set of tools, the package includes ready-to-deploy conceptual application.
+        </p>
+        <div class="features-icon-wrapper row gx-0 gy-6 g-sm-12">
+          <div class="col-lg-4 col-sm-6 text-center features-icon-box">
+            <div class="text-center mb-4">
+              <img src="../../assets/img/front-pages/icons/laptop.png" alt="laptop charging" />
             </div>
-        </div>
-        <!-- end col -->
-    </div>
-    <!-- end row -->
-
-    <div class="row justify-content-center">
-        <div class="col-lg-3 col-md-6">
-            <div class="card text-center py-3 card-animate shadow-lg">
-                <div class="card-body py-4">
-                    <div class="avatar-sm position-relative mb-4 mx-auto">
-                        <div class="job-icon-effect"></div>
-                        <div class="avatar-title bg-transparent text-success rounded-circle">
-                            <i class="ri-pencil-ruler-2-line fs-1"></i>
-                        </div>
-                    </div>
-                    <a href="<?= site_url('manajemen')?>" class="stretched-link">
-                        <h5 class="fs-17 pt-1">Manajemen</h5>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card shadow-lg card-animate text-center py-3">
-                <div class="card-body py-4">
-                    <div class="avatar-sm position-relative mb-4 mx-auto">
-                        <div class="job-icon-effect"></div>
-                        <div class="avatar-title bg-transparent text-success rounded-circle">
-                            <i class="ri-airplay-line fs-1"></i>
-                        </div>
-                    </div>
-                    <a href="#!" class="stretched-link">
-                        <h5 class="fs-17 pt-1">Presensi</h5>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card shadow-lg card-animate text-center py-3">
-                <div class="card-body py-4">
-                    <div class="avatar-sm mb-4 mx-auto position-relative">
-                        <div class="job-icon-effect"></div>
-                        <div class="avatar-title bg-transparent text-success rounded-circle">
-                            <i class="ri-bank-line fs-1"></i>
-                        </div>
-                    </div>
-                    <a href="#!" class="stretched-link">
-                        <h5 class="fs-17 pt-1">Interkoneksi Web Gaji</h5>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card shadow-lg card-animate text-center py-3">
-                <div class="card-body py-4">
-                    <div class="avatar-sm position-relative mb-4 mx-auto">
-                        <div class="job-icon-effect"></div>
-                        <div class="avatar-title bg-transparent text-success rounded-circle">
-                            <i class="ri-focus-2-line fs-1"></i>
-                        </div>
-                    </div>
-                    <a href="#!" class="stretched-link">
-                        <h5 class="fs-17 pt-1">Layanan Data Simpeg</h5>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card shadow-lg card-animate text-center py-3">
-                <div class="card-body py-4">
-                    <div class="avatar-sm position-relative mb-4 mx-auto">
-                        <div class="job-icon-effect"></div>
-                        <div class="avatar-title bg-transparent text-success rounded-circle">
-                            <i class="ri-pencil-ruler-line fs-1"></i>
-                        </div>
-                    </div>
-                    <a href="#!" class="stretched-link">
-                        <h5 class="fs-17 pt-1">Satyalancana</h5>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card shadow-lg card-animate text-center py-3">
-                <div class="card-body py-4">
-                    <div class="avatar-sm position-relative mb-4 mx-auto">
-                        <div class="job-icon-effect"></div>
-                        <div class="avatar-title bg-transparent text-success rounded-circle">
-                            <i class="ri-line-chart-line fs-1"></i>
-                        </div>
-                    </div>
-                    <a href="#!" class="stretched-link">
-                        <h5 class="fs-17 pt-1">Digital Marketing</h5>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card shadow-lg card-animate text-center py-3">
-                <div class="card-body py-4">
-                    <div class="avatar-sm position-relative mb-4 mx-auto">
-                        <div class="job-icon-effect"></div>
-                        <div class="avatar-title bg-transparent text-success rounded-circle">
-                            <i class="ri-briefcase-2-line fs-1"></i>
-                        </div>
-                    </div>
-                    <a href="#!" class="stretched-link">
-                        <h5 class="fs-17 pt-1">Catering &amp; Tourism</h5>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- <section class="section bg-light" id="plans">
-          <div class="bg-overlay bg-overlay-pattern"></div>
-          <div class="container">
-              <div class="row justify-content-center">
-                  <div class="col-lg-8">
-                      <div class="text-center mb-5">
-                          <h3 class="mb-3 fw-semibold">Choose the plan that's right for you</h3>
-                          <p class="text-muted mb-4">Simple pricing. No hidden fees. Advanced features for you business.</p>
-
-                          <div class="d-flex justify-content-center align-items-center">
-                              <div>
-                                  <h5 class="fs-14 mb-0">Month</h5>
-                              </div>
-                              <div class="form-check form-switch fs-20 ms-3 " onclick="check()">
-                                  <input class="form-check-input" type="checkbox" id="plan-switch">
-                                  <label class="form-check-label" for="plan-switch"></label>
-                              </div>
-                              <div>
-                                  <h5 class="fs-14 mb-0">Annual <span class="badge bg-success-subtle text-success">Save 20%</span></h5>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+            <h5 class="mb-2"><a href="<?= site_url('manajemen') ?>">Manajemen Pegawai</a></h5>
+            <p class="features-icon-description">
+              Code structure that all developers will easily understand and fall in love with.
+            </p>
           </div>
-      </section> -->
+          <div class="col-lg-4 col-sm-6 text-center features-icon-box">
+            <div class="text-center mb-4">
+              <img src="../../assets/img/front-pages/icons/rocket.png" alt="transition up" />
+            </div>
+            <h5 class="mb-2"><a href="<?= site_url('layanan') ?>">Layanan Kepegawaian</a></h5>
+            <p class="features-icon-description">
+              Free updates for the next 12 months, including new demos and features.
+            </p>
+          </div>
+          <div class="col-lg-4 col-sm-6 text-center features-icon-box">
+            <div class="text-center mb-4">
+              <img src="../../assets/img/front-pages/icons/paper.png" alt="edit" />
+            </div>
+            <h5 class="mb-2"><a href="<?= site_url('presensi') ?>">Presensi</a></h5>
+            <p class="features-icon-description">
+              Start your project quickly without having to remove unnecessary features.
+            </p>
+          </div>
+          <div class="col-lg-4 col-sm-6 text-center features-icon-box">
+            <div class="text-center mb-4">
+              <img src="../../assets/img/front-pages/icons/user.png" alt="lifebelt" />
+            </div>
+            <h5 class="mb-2"><a href="<?= site_url('kgb') ?>">KGB</a></h5>
+            <p class="features-icon-description">An easy-to-follow doc with lots of references and code examples.</p>
+          </div>
+          <div class="col-lg-4 col-sm-6 text-center features-icon-box">
+            <div class="text-center mb-4">
+              <img src="../../assets/img/front-pages/icons/check.png" alt="3d select solid" />
+            </div>
+            <h5 class="mb-2">Data Non ASN</h5>
+            <p class="features-icon-description">
+              Just change the endpoint and see your own data loaded within seconds.
+            </p>
+          </div>
+          <div class="col-lg-4 col-sm-6 text-center features-icon-box">
+            <div class="text-center mb-4">
+              <img src="../../assets/img/front-pages/icons/keyboard.png" alt="google docs" />
+            </div>
+            <h5 class="mb-2">Perencanaan Pegawai</h5>
+            <p class="features-icon-description">An easy-to-follow doc with lots of references and code examples.</p>
+          </div>
+        </div>
 
+      </div>
+    </div>
+  </div>
+</section>
 <?= $this->endSection() ?>

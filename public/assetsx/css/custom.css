@@ -1,0 +1,25 @@
+/* Color */
+:root {
+    --vz-header-bg-dark: #873ba3;
+    --vz-topbar-user-bg-dark: #670783;
+    --vz-body-bg: #FFFFFF;
+}
+
+@media (min-width: 1024.1px) {
+    [data-layout=horizontal] .page-content {
+        margin-top: 30px;
+    }
+
+    [data-layout=horizontal] .container-fluid,[data-layout=horizontal] .layout-width {
+      max-width:80%;margin:0 auto
+    }
+}
+
+[data-layout=horizontal] .page-content {
+    padding-top: calc(45px + 3rem);
+}
+
+
+.datatable-table td, .datatable-table th, .table td, .table th {
+  white-space: normal;
+}

@@ -2,19 +2,20 @@
 
 <?= $this->section('content') ?>
 <div class="page-content">
-  <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-          <h4 class="mb-sm-0">Data Pejabat</h4>
-
-          <div class="page-title-right">
-            <ol class="breadcrumb m-0">
-              <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
-              <li class="breadcrumb-item active">Starter</li>
-            </ol>
+        <div class="d-flex mb-4 gap-4">
+          <div class="avatar avatar-md">
+            <div class="avatar-initial bg-label-primary rounded">
+              <i class="ti ti-users ti-30px"></i>
+            </div>
           </div>
-
+          <div>
+            <h5 class="mb-0">
+              <span class="align-middle">Data Pejabat</span>
+            </h5>
+            <span>-</span>
+          </div>
         </div>
       </div>
   </div>
@@ -42,7 +43,7 @@
                   </select>
                 </div>
                 <!--end col-->
-                <div class="col-sm-auto ms-auto">
+                <!-- <div class="col-sm-auto ms-auto">
                     <div class="list-grid-nav hstack gap-1">
                         <button type="button" id="grid-view-button" class="btn btn-soft-info nav-link btn-icon fs-14 active filter-button"><i class="ri-grid-fill"></i></button>
                         <button type="button" id="list-view-button" class="btn btn-soft-info nav-link  btn-icon fs-14 filter-button"><i class="ri-list-unordered"></i></button>
@@ -55,43 +56,45 @@
                         </ul>
                         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addmembers"><i class="ri-add-fill me-1 align-bottom"></i> Add Members</button>
                     </div>
-                </div>
+                </div> -->
                 <!--end col-->
             </div>
             <!--end row-->
         </div>
     </div>
-      <div class="card card-body">
-        <table class="table table-bordered table-striped" id="pejabat">
-          <thead>
-            <tr>
-              <th>SATUAN KERJA</th>
-              <th>PEJABAT</th>
-              <th>TMT SK</th>
-              <th>TMT PENSIUN</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php $no=1; foreach ($pejabat as $row) {?>
+    <hr>
+      <div class="card">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped" id="pejabat">
+            <thead class="table-dark">
               <tr>
-                <td><?= $row->satuan_kerja;?></td>
-                <td>
-                  <?php if($row->nama_lengkap){
-                    echo '<b>'.$row->nama_lengkap.'</b><br>'.$row->nip_baru;
-                  }else{
-                    echo '-';
-                  }?>
-                </td>
-                <td><?= ($row->tmt_pensiun)?date('d-m-Y', strtotime($row->tmt_sk_jab)):'-';?></td>
-                <td><?= ($row->tmt_pensiun)?date('d-m-Y', strtotime($row->tmt_pensiun)):'-';?></td>
+                <th>SATUAN KERJA</th>
+                <th>PEJABAT</th>
+                <th width="15%">TMT SK</th>
+                <th width="15%">TMT PENSIUN</th>
               </tr>
-              <?php $no++; } ?>
-            </tbody>
-          </table>
+            </thead>
+            <tbody>
+              <?php $no=1; foreach ($pejabat as $row) {?>
+                <tr>
+                  <td><?= $row->satuan_kerja;?></td>
+                  <td>
+                    <?php if($row->nama_lengkap){
+                      echo '<b>'.$row->nama_lengkap.'</b><br>'.$row->nip_baru;
+                    }else{
+                      echo '-';
+                    }?>
+                  </td>
+                  <td><?= ($row->tmt_pensiun)?date('d-m-Y', strtotime($row->tmt_sk_jab)):'-';?></td>
+                  <td><?= ($row->tmt_pensiun)?date('d-m-Y', strtotime($row->tmt_pensiun)):'-';?></td>
+                </tr>
+                <?php $no++; } ?>
+              </tbody>
+            </table>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 <?= $this->endSection() ?>
 <?= $this->section('script') ?>

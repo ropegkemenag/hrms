@@ -78,7 +78,7 @@ class PegawaiModel extends Model
 
     public function cariProfil($nip)
     {
-      $query = $this->db->query("SELECT * FROM TEMP_PEGAWAI WHERE NIP='$nip'");
+      $query = $this->db->query("SELECT * FROM vwDATA_PEGAWAI WHERE NIP='$nip'");
       $result = $query->getRow();
 
       return $result;

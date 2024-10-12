@@ -11,6 +11,7 @@ use CodeIgniter\Router\RouteCollection;
  $routes->get('auth/callback', 'Auth::callback');
 
  $routes->get('/', 'Home::index',['filter' => 'auth']);
+ $routes->get('/', 'Home::index',['filter' => 'auth']);
 
 // Manajemen
  $routes->group("manajemen", ["filter" => "auth"], function ($routes) {
@@ -147,8 +148,41 @@ use CodeIgniter\Router\RouteCollection;
      $routes->get('getpegawai/(:num)', 'Ajax::getpegawai/$1');
  });
 
- $routes->group("usul", ["filter" => "auth"], function ($routes) {
-     $routes->post('create', 'Usul::create');
+ $routes->group("layanan", ["filter" => "auth"], function ($routes) {
+   $routes->get('/', 'Layanan\Home::index');
+
+   $routes->group("simpeg", function ($routes) {
+       $routes->get('', 'Layanan\Simpeg\Home::index');
+       $routes->get('unor', 'Layanan\Simpeg\Unor::index');
+       $routes->post('unor/addusul', 'Layanan\Simpeg\Unor::addusul');
+       $routes->get('unor/delete/(:any)', 'Layanan\Simpeg\Unor::delete/$1');
+
+       $routes->group("pegawaibaru",function ($routes) {
+           $routes->get('', 'Simpeg\Pegawaibaru::index');
+           $routes->post('addusul', 'Simpeg\Pegawaibaru::addusul');
+           $routes->get('delete/(:any)', 'Simpeg\Pegawaibaru::delete/$1');
+       });
+
+       $routes->group("mutasi",function ($routes) {
+           $routes->get('', 'Simpeg\Pegawaimutasi::index');
+           $routes->get('inbox', 'Simpeg\Pegawaimutasi::inbox');
+           $routes->post('addusul', 'Simpeg\Pegawaimutasi::addusul');
+           $routes->get('accept/(:any)', 'Simpeg\Pegawaimutasi::accept/$1');
+           $routes->post('decline', 'Simpeg\Pegawaimutasi::decline');
+       });
+   });
+
+   // KGB
+   $routes->group("kgb", function ($routes) {
+       $routes->get('', 'Layanan\Kgb\Home::index');
+       $routes->get('pegawai', 'Layanan\Kgb\Pegawai::index');
+       $routes->post('pegawai/getdata', 'Layanan\Kgb\Pegawai::getData');
+       $routes->get('setup', 'Layanan\Kgb\Home::setup');
+       $routes->get('proses', 'Layanan\Kgb\Proses::index');
+       $routes->post('proses/getdata', 'Layanan\Kgb\Proses::getData');
+       $routes->get('proses/add/(:any)', 'Layanan\Kgb\Proses::add/$1');
+   });
+
  });
 
  $routes->group("dokumen", ["filter" => "auth"], function ($routes) {
@@ -160,14 +194,11 @@ use CodeIgniter\Router\RouteCollection;
      $routes->get('', 'Kenaikanpangkat\Home::index');
  });
 
- $routes->group("kgb", ["filter" => "auth"], function ($routes) {
-     $routes->get('', 'Kgb\Home::index');
-     $routes->get('pegawai', 'Kgb\Pegawai::index');
-     $routes->post('pegawai/getdata', 'Kgb\Pegawai::getData');
-     $routes->get('setup', 'Kgb\Home::setup');
-     $routes->get('proses', 'Kgb\Proses::index');
-     $routes->post('proses/getdata', 'Kgb\Proses::getData');
-     $routes->get('proses/add/(:any)', 'Kgb\Proses::add/$1');
+ $routes->group("verifikasi", ["filter" => "auth"], function ($routes) {
+     $routes->get('', 'Verifikasi\Home::index');
+     $routes->get('inbox', 'Verifikasi\Home::inbox');
+     $routes->get('riwayat', 'Verifikasi\Home::riwayat');
+     $routes->get('getlist', 'Verifikasi\Home::getlist');
  });
 
  $routes->group("tubel", ["filter" => "auth"], function ($routes) {
@@ -186,27 +217,6 @@ use CodeIgniter\Router\RouteCollection;
      $routes->get('kenaikanjf/detail/(:any)/(:num)', 'Mutasi\Kenaikanjf::detail/$1/$2');
      $routes->post('kenaikanjf/savedata', 'Mutasi\Kenaikanjf::savedata');
      $routes->get('kenaikanjf/submit/(:any)', 'Mutasi\Kenaikanjf::submit/$1');
- });
-
- $routes->group("simpeg", ["filter" => "auth"], function ($routes) {
-     $routes->get('', 'Simpeg\Home::index');
-     $routes->get('unor', 'Simpeg\Unor::index');
-     $routes->post('unor/addusul', 'Simpeg\Unor::addusul');
-     $routes->get('unor/delete/(:any)', 'Simpeg\Unor::delete/$1');
-
-     $routes->group("pegawaibaru",function ($routes) {
-         $routes->get('', 'Simpeg\Pegawaibaru::index');
-         $routes->post('addusul', 'Simpeg\Pegawaibaru::addusul');
-         $routes->get('delete/(:any)', 'Simpeg\Pegawaibaru::delete/$1');
-     });
-
-     $routes->group("mutasi",function ($routes) {
-         $routes->get('', 'Simpeg\Pegawaimutasi::index');
-         $routes->get('inbox', 'Simpeg\Pegawaimutasi::inbox');
-         $routes->post('addusul', 'Simpeg\Pegawaimutasi::addusul');
-         $routes->get('accept/(:any)', 'Simpeg\Pegawaimutasi::accept/$1');
-         $routes->post('decline', 'Simpeg\Pegawaimutasi::decline');
-     });
  });
 
  $routes->group('converter', static function ($routes) {

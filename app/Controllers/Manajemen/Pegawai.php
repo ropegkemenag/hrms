@@ -12,16 +12,16 @@ class Pegawai extends BaseController
 {
     public function index()
     {
-      if(session('kelola') == 0){
-        return $this->indexall();
-      }else{
+      // if(session('kelola') == 0){
+      //   return $this->indexall();
+      // }else{
         $model = new PegawaiModel;
         $smodel = new SatkerModel;
         $data['satker'] = $smodel->find(session('kelola'));
         $data['jabatan'] = $model->getJabatanSatker(session('kodesatker4'));
         $data['unit'] = $smodel->where('KODE_ATASAN',session('kelola'))->findAll();
         return view('manajemen/pegawai/data',$data);
-      }
+      // }
     }
 
     public function indexall()
@@ -66,6 +66,9 @@ class Pegawai extends BaseController
       $data['pegawai'] = $model->cariProfil($dnip);
       $data['pendidikan'] = $simpeg->getArray('V_RIWAYAT_PENDIDIKAN',['NIP'=>$dnip]);
       $data['diklat'] = $simpeg->getArray('vwALL_DIKLAT', ['NIP'=>$dnip]);
+      $data['jabatans'] = $simpeg->getArray('V_RIWAYAT_JABATAN',['NIP'=>$dnip]);
+      $data['keluargapasangan'] = $simpeg->getArray('TD_SUAMI_ISTRI',['NIP'=>$dnip]);
+      // $data['keluargapasangan'] = $simpeg->getArray('TD_KELUARGA',['NIP'=>$dnip,'JENIS_KELUARGA'=>'SK']);
 
       if($menu){
         return $this->{$menu}($nip,$data);
@@ -146,7 +149,7 @@ class Pegawai extends BaseController
     {
       $db = \Config\Database::connect('default', false);
       // $builder = $db->table('TEMP_PEGAWAI')->select('NIP, NIP_BARU, NAMA_LENGKAP, TAMPIL_JABATAN, SATKER_2')->where(['KODE_SATKER_4'=>session('kodesatker4')]);
-      $builder = $db->table('TEMP_PEGAWAI')->select('NIP, NIP_BARU, NAMA_LENGKAP, TAMPIL_JABATAN, SATKER_2, SATKER_3')->like('KODE_SATUAN_KERJA', kodekepala(session('kelola')), 'after');
+      $builder = $db->table('TEMP_PEGAWAI')->select('NIP, NIP_BARU, NAMA_LENGKAP, TAMPIL_JABATAN, SATKER_2, SATKER_3, SATKER_4, STATUS_PEGAWAI')->like('KODE_SATUAN_KERJA', kodekepala(session('kelola')), 'after');
 
       return DataTable::of($builder)
       ->add('action', function($row){
@@ -159,8 +162,8 @@ class Pegawai extends BaseController
         if ($request->jenis)
             $builder->where('STATUS_PEGAWAI', $request->jenis);
 
-        // if ($request->unit)
-        //     $builder->like('KODE_SATUAN_KERJA', $request->unit, 'after');
+        if ($request->unit)
+            $builder->like('KODE_SATUAN_KERJA', kodekepala($request->unit), 'after');
 
       })
       ->toJson(true);
